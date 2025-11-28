@@ -1,2 +1,43 @@
 @import "tailwindcss";
 
+/* src/index.css */
+:root {
+  --bg: #ffffff;
+  --panel: #f6f6f8;
+  --text: #111827;
+  --muted: #6b7280;
+}
+
+[data-theme="dark"] {
+  --bg: #0b1020;
+  --panel: #0f1724;
+  --text: #e6eef8;
+  --muted: #9aa4b2;
+}
+
+/* apply usage */
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Example of using variables for components */
+.card {
+  background: var(--panel);
+  color: var(--text);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+/* Search bar wrapper (optional) */
+.search-container {
+  width: 100%;
+  max-width: 450px;
+}
+
+

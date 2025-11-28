@@ -36,7 +36,16 @@ const auth = useAuth();
 
                   <div className='relative sm:72 w-40 space-x-2 '>
                     <FaSearch className='absolute inline-block left-3 inset-y-2' />
-                    <input type="text" placeholder="Search here" className='bg-[#EAEAEA] w-full py-1 md:px-8 px-6 rounded-md focus:outline-none'/>
+                   <input
+                           type="text"
+                            placeholder="Search here"
+                           className="
+                          w-full py-1 md:px-8 px-6 rounded-md focus:outline-none
+                             bg-[#EAEAEA] text-black placeholder:text-gray-600
+                            dark:bg-[#2A2A2A] dark:text-white dark:placeholder:text-gray-300
+                           "
+                       />
+
 
                   </div>
                 </div>

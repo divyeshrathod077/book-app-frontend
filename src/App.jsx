@@ -8,21 +8,27 @@ import { Outlet } from 'react-router-dom'
 import { useEffect } from 'react'
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
+import  Toggle  from './components/Toggle.jsx'
 
 
 function App() {
   const [count, setCount] = useState(0)
+  const [isDark,setIsDark]= useState(true);
 
   return (
     <>
+
    
-      
-    <Navbar/>
+        <Navbar/>
+         <Toggle>Swith Theme</Toggle>
     <main className='min-h-screen mx-w-screen-2xl mx-auto px-4 py-6'>
         <Outlet/>
         
         </main>
+
     <Footer/>   
+    
+    
   
 
  
