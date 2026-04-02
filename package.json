@@ -16,7 +16,7 @@
     
  
  
-  "build":"react-scripts build",
+  "build": "vite build",
 
   
     
