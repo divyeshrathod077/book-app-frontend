@@ -16,6 +16,7 @@ import ManageBooks from "../pages/dashboard/manageBooks/ManageBooks";
 import AddBook from "../pages/dashboard/AddBook/AddBook.jsx";
 import UpdateBook from "../pages/dashboard/EditBook/UpdateBook";
 import UserDashboard from "../pages/dashboard/users/UserDashboard";
+import PaymentPage from "../pages/books/PaymentPage.jsx";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
           path: "/checkout",
           element: <PrivateRoute><CheckoutPage/></PrivateRoute>
         },
+        {
+          path: "/payment",
+          element: <PrivateRoute><PaymentPage/></PrivateRoute>
+        },
+        
         {
           path: "/books/:id",
           element: <SingleBook/>

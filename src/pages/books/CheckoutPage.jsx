@@ -27,44 +27,36 @@ const CheckoutPage = () => {
   }
 
   const onSubmit = async (data) => {
-    const newOrder = {
-      name: data.name,
-      email: currentUser?.email,
-      address: {
-        street: data.address,
-        city: data.city,
-        country: data.country,
-        state: data.state,
-        zipcode: data.zipcode,
-      },
-      phone: data.phone,
-      productIds: cartItems.map((item) => item?._id),
-      totalPrice,
-    }
-    console.log("New Order:",newOrder);
-
-    const result = await Swal.fire({
-      title: "Confirm your order?",
-      text: `You are ordering ${cartItems.length} items totaling $${totalPrice}`,
-      icon: "question",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, place order",
-    });
-    navigate("/order");
-
-    if (result.isConfirmed) {
-      try {
-        await createOrder(newOrder).unwrap();
-        Swal.fire("Success!", "Your order has been placed!", "success");
-        navigate("/order");
-      } catch (error) {
-        console.error("Error placing order:", error);
-        Swal.fire("Error!", "Failed to place order. Please try again.", "error");
-      }
-    }
+  const checkoutData = {
+    name: data.name,
+    email: currentUser?.email,
+    address: {
+      street: data.address,
+      city: data.city,
+      country: data.country,
+      state: data.state,
+      zipcode: data.zipcode,
+    },
+    phone: data.phone,
+    items: cartItems,
+    totalPrice,
   };
+
+  const result = await Swal.fire({
+    title: "Proceed to Payment?",
+    text: `Total $${totalPrice}`,
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonText: "Pay Now",
+  });
+
+  if (result.isConfirmed) {
+    // store temporarily
+    localStorage.setItem("checkoutData", JSON.stringify(checkoutData));
+
+    navigate("/payment"); // 👉 go to payment page
+  }
+};
 
 
 
@@ -206,7 +198,7 @@ const CheckoutPage = () => {
                               : "bg-gray-400 cursor-not-allowed"
                           } text-white font-bold py-2 px-4 rounded`}
                         >
-                          Place Order
+                          Pay Now 
                         </button>
                       </div>
                     </div>
