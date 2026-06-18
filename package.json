@@ -14,10 +14,7 @@
   "dev": "vite",
   
     
- 
- 
   "build": "vite build",
-
   
     
   "lint": "eslint .",
@@ -26,8 +23,12 @@
   "preview": "vite preview"
   
   },
-  "engines":{
-    "node":"24.0.0"
+  
+  "engines": {
+  
+    
+  "node": "24.0.0"
+  
   },
   
   "dependencies": {
@@ -95,6 +96,9 @@
   
     
   "@vitejs/plugin-react": "^5.0.4",
+  
+    
+  "baseline-browser-mapping": "^2.10.38",
   
     
   "eslint": "^9.36.0",
